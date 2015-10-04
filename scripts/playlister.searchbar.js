@@ -20,9 +20,7 @@ $("#Main_Searchbar").css("top",searchtop).css("left",$("#Main_Searchbar").positi
         })
 
 
-        /*$.get("/fetch", {phonenumber:$("#Main_Searchbar").val()},function(){
-          console.log("Get DOne");
-        });
+        /*
           */
 
     }
@@ -42,7 +40,11 @@ function loader(){
     t = 1;
   }
 }
-
+function loaddata(){
+  $.get("/fetch", {phonenumber:$("#Main_Searchbar").val()},function(data){
+    finishedload(data);
+  });
+}
 function finishedload(){
    $("#loading").fadeOut("slow",function(){
        $("#loading").remove();
@@ -55,12 +57,17 @@ function finishedload(){
        $("#returned_data").animate({
          top:$("#main_container_container").height()
        },500);
+       var data_extracted = JSON.parse(data);
+       for(var d = 0;d<data_extracted.length();d++){
+          add_data("https://www.youtube.com/watch?v="+data_extracted[d],"http://img.youtube.com/vi/"+data_extracted[d]+"/0.jpg","");
+       }
    });
 }
 
-function adddata(url, imageurl, desc){
+function add_data(url, imageurl, desc){
   /*
-  adddata("https://upload.wikimedia.org/wikipedia/commons/7/7c/Aspect_ratio_16_9_example.jpg","https://upload.wikimedia.org/wikipedia/commons/7/7c/Aspect_ratio_16_9_example.jpg","FUCK U")
+    adddata("https://upload.wikimedia.org/wikipedia/commons/7/7c/Aspect_ratio_16_9_example.jpg","https://upload.wikimedia.org/wikipedia/commons/7/7c/Aspect_ratio_16_9_example.jpg","FUCK U")
+    //http://img.youtube.com/vi/watch?v=c6wuh0NRG1s/0.jpg
   */
     $("#returned_data").append("<a style='border-radius:1em;text-decoration:none' class='youtube_container' href='"+url+"'><img class='youtube_picture' src='"+imageurl+"'/><p style='background-color:#DDD1E1;color:black;'>"+desc+"</p></a>")
 }

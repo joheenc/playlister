@@ -35,7 +35,7 @@ body{
   width:100%;
   font-family: main;
   font-size:2em;
-  
+
 }
 
 /*IDS*/
@@ -79,8 +79,8 @@ body{
 /*#993399*/
 #loading{
   position:absolute;
-  height:175px;
-  width:175px;
+  height:75px;
+  width:75px;
 }
 #main_title{
   font-family:main;
