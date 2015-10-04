@@ -1,8 +1,7 @@
 html,p,a,body{
   margin:0;
   padding:0;
-  background-image: url("../images/bg.jpg");
-  background-size: cover;
+  background-color: #00CCFF;
 }
 html{
   overflow: hidden;
@@ -74,13 +73,14 @@ body{
     outline: solid #004573;
     margin-top: 10px;
     font-size:2em;
+
 }
 
 /*#993399*/
 #loading{
   position:absolute;
-  height:175px;
-  width:175px;
+  height:75px;
+  width:75px;
 }
 #main_title{
   font-family:main;
@@ -89,7 +89,6 @@ body{
   text-shadow: 4px 4px #004573;
   padding-left: 10px;
   padding-right: 10px;
-
 }
 #main_container_container{
   display :flex;
